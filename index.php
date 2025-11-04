@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('uploads/background.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Arial', sans-serif;
             color: #fff;
@@ -72,14 +72,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             height: 100vh;
             margin: 0;
         }
-        .login-container {
-            background: rgba(20, 20, 20, 0.9);
-            padding: 30px;
+        .login-container{
+            background: rgba(0, 0, 0, 0.8);
+            padding: 65px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-            width: 350px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            width: 300px;
             text-align: center;
-            border: 1px solid #ff0000;
         }
         .logo {
             font-family: 'Metal Mania', cursive;
@@ -88,38 +87,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-bottom: 20px;
             text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
         }
-        input {
+        input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: none;
+            border: 1px solid #ff0000;
             border-radius: 5px;
             background: #333;
             color: #fff;
         }
         button {
-            width: 100%;
+            width: 107%;
             padding: 10px;
             background: #ff0000;
-            color: #fff;
             border: none;
             border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
             cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
+            transition: background 0.3s;
         }
         button:hover {
             background: #cc0000;
         }
+
+        label{
+            float: left;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
     </style>
 </head>
 <body>
     <div class="login-container">
         <div class="logo">RUTA 666</div>
         <form method="POST" action="">
-            <input type="text" name="usuario" placeholder="Usuario" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Entrar</button>
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block">Entrar</button>
+            </div>            
         </form>
     </div>
 </body>
